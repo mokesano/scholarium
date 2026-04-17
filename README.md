@@ -1,4 +1,4 @@
-# Scholarium
+# Wizdam Scholarium
 ### The Modern Scholarly Publishing Suite
 
 <div align="center">
@@ -67,7 +67,7 @@ Banyak jurnal di Indonesia masih bertahan di OJS 2 karena kenyamanan antarmuka d
 
 1.  **Clone Repositori**
     ```bash
-    git clone https://github.com/mokesano/scholarium.git
+    git clone https://github.com/mokesano/wizdam-scholarium.git
     cd scholarium
     ```
 
@@ -81,7 +81,7 @@ Banyak jurnal di Indonesia masih bertahan di OJS 2 karena kenyamanan antarmuka d
 3.  **Jalankan Web Installer**
     Buka browser dan akses:
     ```
-    http://domain-anda.com/scholarium/install
+    http://domain-anda.com/wizdam-scholarium/install
     ```
     Ikuti langkah-langkah wizard instalasi yang interaktif.
 
@@ -94,8 +94,8 @@ Banyak jurnal di Indonesia masih bertahan di OJS 2 karena kenyamanan antarmuka d
 
 Scholarium mempertahankan struktur direktori dan alur kerja OJS 2.4.8.5. Untuk panduan penggunaan harian, Anda dapat merujuk ke dokumentasi PKP.
 
-- **🐛 Bug & Isu Teknis**: Silakan buka tiket di [GitHub Issues](https://github.com/mokesano/scholarium/issues).
-- **💬 Diskusi Komunitas**: Bergabunglah di [GitHub Discussions](https://github.com/mokesano/scholarium/discussions) atau forum [OJS Community Indonesia](https://forum.pkp.sfu.ca/).
+- **🐛 Bug & Isu Teknis**: Silakan buka tiket di [GitHub Issues](https://github.com/mokesano/wizdam-scholarium/issues).
+- **💬 Diskusi Komunitas**: Bergabunglah di [GitHub Discussions](https://github.com/mokesano/wizdam0scholarium/discussions) atau forum [OJS Community Indonesia](https://forum.pkp.sfu.ca/).
 
 ---
 
@@ -115,6 +115,6 @@ Scholarium dapat terwujud berkat kontribusi luar biasa dari:
 ---
 
 <div align="center">
-  <b>Dibangun dengan ❤️ oleh Komunitas untuk Penerbitan Ilmiah Indonesia</b><br/>
-  <i>Scholarium — Where Manuscripts Meet Automation.</i>
+  <b>Dibangun dengan ❤️ oleh Sangia Publishing House untuk Penerbitan Ilmiah</b><br/>
+  <i>Wizdam Scholarium — Where Manuscripts Meet Automation.</i>
 </div>
