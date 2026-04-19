@@ -1,48 +1,56 @@
 ```
-# Dependencies
-node_modules/
-
-# Logs and temp files
-*.log
-*.tmp
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Editors
-.vscode/
-.idea/
-
-# Python
-__pycache__/
+# Build artifacts and compiled files
 *.pyc
-*.pyo
-*.pyd
-.Python
-venv/
-.venv/
-.env
-.env.local
-.env.*
-.pytest_cache/
-.mypy_cache/
-.coverage
-coverage/
-htmlcov/
-
-# Build directories
+__pycache__/
+*.o
+*.obj
+*.out
 dist/
 build/
 target/
-*.egg-info/
+
+# Dependencies
+node_modules/
+venv/
+.venv/
+.julia/
+zig-cache/
+.depdb/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.backup*
+
+# Environment variables and local configs
+.env
+.env.local
+.env.*
+.env~*
+.env.local~
 
 # OS generated files
 .DS_Store
 Thumbs.db
+*.DS_Store*
+ehthumbs.db
+Icon?
+.directory
+.Spotlight-V100
+.Trashes
+VolumeIcon.icns
 
-# Compression files
+# Backup files
+*~
+*.bak
+*.save
+*.orig
+*.rej
+
+# Compressed archives
 *.zip
 *.gz
 *.tar
@@ -65,4 +73,78 @@ Thumbs.db
 *.tar.bz2
 *.tar.xz
 *.tar.zst
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# Python specific
+*.py[cod]
+*$py.class
+*.so
+.Python
+install_manifest.txt
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.hypothesis/
+
+# PHP specific
+vendor/
+composer.lock
+*.phar
+
+# IDE and editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# Database
+*.db
+*.db3
+*.sqlite
+*.sqlite3
+
+# Local development and cache
+.cache/
+.temp/
+.tmp/
+local.properties
+.settings/
+
+# Testing
+.junit/
+.test-results/
+
+# Package managers
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp.*
+.pnp.js
+
+# Sensitive files
+config/secrets.yml
+secrets.json
+creds.json
+*.key
+*.pem
+.id_rsa
+.id_rsa.pub
+
+# System files
+*.tmp
+*~
+.DS_Store
+Thumbs.db
+
+# Legacy backup files
+*.final_backup_*
+*.pre_rollback_backup
+*.emergency_backup.*
+
 ```
