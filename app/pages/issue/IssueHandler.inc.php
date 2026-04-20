@@ -257,7 +257,7 @@ class IssueHandler extends Handler {
 
 	/**
 	 * Validation
-	 * @see lib/pkp/classes/handler/PKPHandler#validate()
+	 * @see core/classes/handler/PKPHandler#validate()
 	 * @param $request Request
 	 * @param $issueId int
 	 * @param $galleyId int

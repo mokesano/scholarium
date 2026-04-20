@@ -22,8 +22,8 @@
 /* This definition is required by Smarty */
 define('SMARTY_DIR', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'smarty' . DIRECTORY_SEPARATOR);
 
-require_once('./core/lib/smarty/Smarty.class.php');
-require_once('./core/lib/smarty/plugins/modifier.escape.php'); // Seems to be needed?
+require_once('./core/library/smarty/Smarty.class.php');
+require_once('./core/library/smarty/plugins/modifier.escape.php'); // Seems to be needed?
 
 define('CACHEABILITY_NO_CACHE',		'no-cache');
 define('CACHEABILITY_NO_STORE',		'no-store');
@@ -629,7 +629,7 @@ class TemplateManager extends Smarty {
 			if (isset($params['name'])) {
 				// build image tag with standarized size of 16x16
 				$disabled = (isset($params['disabled']) && !empty($params['disabled']));
-				if (!isset($params['path'])) $params['path'] = 'lib/pkp/templates/images/icons/';
+				if (!isset($params['path'])) $params['path'] = 'core/templates/images/icons/';
 				$iconHtml = '<img src="' . $smarty->get_template_vars('baseUrl') . '/' . $params['path'];
 				$iconHtml .= $params['name'] . ($disabled ? '_disabled' : '') . '.gif" width="16" height="14" alt="';
 
@@ -723,8 +723,8 @@ class TemplateManager extends Smarty {
 			foreach ($pkpProfiler->getData() as $output => $value) {
 				$smarty->assign($output, $value);
 			}
-			$smarty->assign('pqpCss', $this->request->getBaseUrl() . '/core/lib/pqp/css/pQp.css');
-			$smarty->assign('pqpTemplate', BASE_SYS_DIR . '/core/lib/pqp/pqp.tpl');
+			$smarty->assign('pqpCss', $this->request->getBaseUrl() . '/core/library/pqp/css/pQp.css');
+			$smarty->assign('pqpTemplate', BASE_SYS_DIR . '/core/library/pqp/pqp.tpl');
 		}
 	}
 

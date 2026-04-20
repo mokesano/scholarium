@@ -92,7 +92,7 @@ class LanguageDAO extends DAO {
 	 * @return string
 	 */
 	function getLanguageFilename($locale) {
-		return "lib/pkp/locale/$locale/languages.xml";
+		return "core/locale/$locale/languages.xml";
 	}
 
 	/**

@@ -8,7 +8,7 @@
  * @class UploaderHandler
  * @ingroup js_controllers
  *
- * @brief PKP file uploader widget handler.
+ * @brief Core file uploader widget handler.
  */
 (function($) {
 
@@ -42,10 +42,10 @@
 					url: options.uploadUrl,
 					// Flash settings
 					flash_swf_url: options.baseUrl +
-							'/lib/pkp/js/lib/plupload/plupload.flash.swf',
+							'/assets/js/lib/plupload/plupload.flash.swf',
 					// Silverlight settings
 					silverlight_xap_url: options.baseUrl +
-							'/lib/pkp/js/lib/plupload/plupload.silverlight.xap'
+							'/assets/js/lib/plupload/plupload.silverlight.xap'
 				});
 
 		// Create the uploader with the puploader plug-in.

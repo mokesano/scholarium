@@ -22,7 +22,7 @@ import('core.plugins.oaiMetadataFormats.dc.PKPOAIMetadataFormat_DC');
 class OAIMetadataFormat_DC extends OAIMetadataFormat_DC {
 
 	/**
-	 * @see lib/pkp/plugins/oaiMetadataFormats/dc/PKPOAIMetadataFormat_DC::toXml()
+	 * @see core/plugins/oaiMetadataFormats/dc/PKPOAIMetadataFormat_DC::toXml()
 	 */
 	function toXml(&$record, $format = null) {
 		$article =& $record->getData('article');

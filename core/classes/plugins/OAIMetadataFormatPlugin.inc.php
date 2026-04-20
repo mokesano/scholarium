@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file lib/pkp/classes/plugins/OAIMetadataFormatPlugin.inc.php
+ * @file core/classes/plugins/OAIMetadataFormatPlugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky

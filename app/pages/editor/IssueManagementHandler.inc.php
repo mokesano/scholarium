@@ -60,8 +60,8 @@ class IssueManagementHandler extends EditorHandler {
 
 		$templateMgr =& TemplateManager::getManager();
 
-		$templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/jquery.tablednd.js');
-		$templateMgr->addJavaScript('lib/pkp/js/functions/tablednd.js');
+		$templateMgr->addJavaScript('assets/js/lib/jquery/plugins/jquery.tablednd.js');
+		$templateMgr->addJavaScript('assets/js/functions/tablednd.js');
 
 		$templateMgr->assign_by_ref('issues', $issueDao->getPublishedIssues($journal->getId(), $rangeInfo));
 
@@ -601,8 +601,8 @@ class IssueManagementHandler extends EditorHandler {
 		$templateMgr->assign('issueOptions', IssueAction::getIssueOptions());
 		$templateMgr->assign('helpTopicId', 'publishing.tableOfContents');
 
-		$templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/jquery.tablednd.js');
-		$templateMgr->addJavaScript('lib/pkp/js/functions/tablednd.js');
+		$templateMgr->addJavaScript('assets/js/lib/jquery/plugins/jquery.tablednd.js');
+		$templateMgr->addJavaScript('assets/js/functions/tablednd.js');
 
 		$templateMgr->display('editor/issues/issueToc.tpl');
 	}

@@ -86,9 +86,9 @@ class JournalSetupStep3Form extends JournalSetupForm {
 
 		// Add extra java script required for ajax components
 		// FIXME: Must be removed after OMP->OJS backporting
-		$templateMgr->addJavaScript('lib/pkp/js/functions/modal.js');
-		$templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.min.js');
-		$templateMgr->addJavaScript('lib/pkp/js/functions/jqueryValidatorI18n.js');
+		$templateMgr->addJavaScript('assets/js/functions/modal.js');
+		$templateMgr->addJavaScript('assets/js/lib/jquery/plugins/validate/jquery.validate.min.js');
+		$templateMgr->addJavaScript('assets/js/functions/jqueryValidatorI18n.js');
 
 		import('app.classes.mail.MailTemplate');
 		$mail = new MailTemplate('SUBMISSION_ACK');

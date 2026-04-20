@@ -679,7 +679,7 @@ class OAI {
 		header('Content-Type: text/xml');
 
 		echo	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" .
-			"<?xml-stylesheet type=\"text/xsl\" href=\"" . Request::getBaseUrl() . "/lib/pkp/xml/oai2.xsl\" ?>\n" .
+			"<?xml-stylesheet type=\"text/xsl\" href=\"" . Request::getBaseUrl() . "/core/xml/oai2.xsl\" ?>\n" .
 			"<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n" .
 			"\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n" .
 			"\txsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n" .

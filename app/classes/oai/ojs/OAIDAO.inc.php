@@ -52,7 +52,7 @@ class OAIDAO extends OAIDAO {
 	}
 
 	/**
-	 * @see lib/pkp/classes/oai/OAIDAO::getEarliestDatestamp()
+	 * @see core/classes/oai/OAIDAO::getEarliestDatestamp()
 	 */
 	function getEarliestDatestamp($setIds = array()) {
 		return parent::getEarliestDatestamp('SELECT	CASE WHEN COALESCE(dot.date_deleted, a.last_modified) > i.last_modified THEN i.last_modified ELSE COALESCE(dot.date_deleted, a.last_modified) END', $setIds);
@@ -177,7 +177,7 @@ class OAIDAO extends OAIDAO {
 	// Protected methods.
 	//
 	/**
-	 * @see lib/pkp/classes/oai/OAIDAO::getRecordSelectStatement()
+	 * @see core/classes/oai/OAIDAO::getRecordSelectStatement()
 	 */
 	function getRecordSelectStatement() {
 		return 'SELECT	CASE WHEN COALESCE(dot.date_deleted, a.last_modified) < i.last_modified THEN i.last_modified ELSE COALESCE(dot.date_deleted, a.last_modified) END AS last_modified,
@@ -191,7 +191,7 @@ class OAIDAO extends OAIDAO {
 	}
 
 	/**
-	 * @see lib/pkp/classes/oai/OAIDAO::getRecordJoinClause()
+	 * @see core/classes/oai/OAIDAO::getRecordJoinClause()
 	 */
 	function getRecordJoinClause($articleId = null, $setIds = array(), $set = null) {
 		if (isset($setIds[1])) {
@@ -210,14 +210,14 @@ class OAIDAO extends OAIDAO {
 	}
 
 	/**
-	 * @see lib/pkp/classes/oai/OAIDAO::getAccessibleRecordWhereClause()
+	 * @see core/classes/oai/OAIDAO::getAccessibleRecordWhereClause()
 	 */
 	function getAccessibleRecordWhereClause() {
 		return 'WHERE ((s.section_id IS NOT NULL AND i.published = 1 AND j.enabled = 1 AND a.status <> ' . STATUS_ARCHIVED . ') OR dot.data_object_id IS NOT NULL)';
 	}
 
 	/**
-	 * @see lib/pkp/classes/oai/OAIDAO::getDateRangeWhereClause()
+	 * @see core/classes/oai/OAIDAO::getDateRangeWhereClause()
 	 */
 	function getDateRangeWhereClause($from, $until) {
 		return (isset($from) ? ' AND CASE WHEN COALESCE(dot.date_deleted, a.last_modified) < i.last_modified THEN (i.last_modified >= ' . $this->datetimeToDB($from) . ') ELSE ((dot.date_deleted IS NOT NULL AND dot.date_deleted >= ' . $this->datetimeToDB($from) . ') OR (dot.date_deleted IS NULL AND a.last_modified >= ' . $this->datetimeToDB($from) . ')) END' : '')
@@ -226,7 +226,7 @@ class OAIDAO extends OAIDAO {
 	}
 
 	/**
-	 * @see lib/pkp/classes/oai/OAIDAO::setOAIData()
+	 * @see core/classes/oai/OAIDAO::setOAIData()
 	 */
 	function &setOAIData(&$record, &$row, $isRecord = true) {
 		$journal =& $this->getJournal($row['journal_id']);

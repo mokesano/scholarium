@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file lib/pkp/controllers/grid/filter/LookupFilterGridHandler.inc.php
+ * @file core/controllers/grid/filter/LookupFilterGridHandler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky

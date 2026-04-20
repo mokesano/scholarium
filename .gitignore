@@ -1,30 +1,39 @@
 ```
-# Dependency directories
-lib/pkp/lib/
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
+*.out
+dist/
+build/
+target/
 
-# Build artifacts and temp files
+# Dependencies
+.venv/
+venv/
+node_modules/
+
+# Logs and temp files
+*.log
 *.tmp
 *.swp
-*.log
+*.swo
 
-# IDE and editor files
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
 .vscode/
 .idea/
 
-# System files
+# OS-specific
 .DS_Store
 Thumbs.db
 
-# Cache directories
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Logs
-*.log
-
-# Compressed files
+# Compressed archives
 *.zip
 *.gz
 *.tar
