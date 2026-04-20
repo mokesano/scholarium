@@ -30,7 +30,7 @@ class CountryDAO extends DAO {
 	 */
 	function getFilename($locale = null) {
 		if ($locale === null) $locale = AppLocale::getLocale();
-		return "lib/pkp/locale/$locale/countries.xml";
+		return "core/locale/$locale/countries.xml";
 	}
 
 	function &_getCountryCache($locale = null) {

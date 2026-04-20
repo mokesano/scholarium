@@ -57,7 +57,7 @@
 
 // Initialize global environment
 define('INDEX_FILE_LOCATION', __FILE__);
-require('./core/includes/bootstrap.inc.php');
+require('../core/includes/bootstrap.inc.php');
 
 // Serve the request
 $application =& CoreApplication::getApplication();

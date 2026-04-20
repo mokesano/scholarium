@@ -31,7 +31,7 @@
  *          Main tab:
  *            Location: /path/to/your/php.exe
  *            Working Directory: ${workspace_loc:/your-project}
- *            Arguments: ${project_loc}/lib/pkp/tools/phpCompat.php "${resource_loc}"
+ *            Arguments: ${project_loc}/core/lib/pkp-tools/phpCompat.php "${resource_loc}"
  *
  *          Common tab:
  *            Check "Display in favorites menu" -> "External Tools"
@@ -42,8 +42,8 @@
  */
 
 
-// FIXME: This doesn't work if lib/pkp is symlinked. realpath($_['SCRIPT_FILENAME'].'/../../index.php') could work but see http://bugs.php.net/bug.php?id=50366
-define('INDEX_FILE_LOCATION', dirname(dirname(dirname(dirname(__FILE__)))) . '/index.php');
+// FIXME: This doesn't work if core/lib/pkp-tools is symlinked. realpath($_['SCRIPT_FILENAME'].'/../../public/index.php') could work but see http://bugs.php.net/bug.php?id=50366
+define('INDEX_FILE_LOCATION', dirname(dirname(dirname(dirname(__FILE__)))) . '/public/index.php');
 require_once(dirname(dirname(__FILE__)) . '/classes/cliTool/CliTool.inc.php');
 require_once('PHP/CompatInfo.php');
 

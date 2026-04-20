@@ -467,7 +467,7 @@ class TranslatorHandler extends Handler {
 				$dir = dirname($targetFilename);
 				if (!file_exists($dir)) mkdir($dir);
 				file_put_contents($targetFilename, '<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE email_texts SYSTEM "../../../../../lib/pkp/dtd/emailTemplateData.dtd">
+<!DOCTYPE email_texts SYSTEM "../../../../../core/dtd/emailTemplateData.dtd">
 <!--
   * emailTemplateData.xml
   *

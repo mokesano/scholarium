@@ -13,6 +13,6 @@
  *  to index.php for web requests).
  */
 
-define('INDEX_FILE_LOCATION', dirname(dirname(__FILE__)) . '/index.php');
-require(dirname(dirname(__FILE__)) . '/lib/pkp/classes/cliTool/CliTool.inc.php');
+define('INDEX_FILE_LOCATION', dirname(dirname(__FILE__)) . '/public/index.php');
+require(dirname(dirname(__FILE__)) . '/core/includes/cliTool/CliTool.inc.php');
 ?>

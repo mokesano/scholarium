@@ -284,7 +284,7 @@ class Plugin {
 		// Construct the well-known filter configuration file names.
 		$filterConfigFile = $this->getPluginPath().'/filter/'.PLUGIN_FILTER_DATAFILE;
 		$filterConfigFiles = array(
-			'./lib/pkp/'.$filterConfigFile,
+			'./core/'.$filterConfigFile,
 			'./'.$filterConfigFile
 		);
 		return $filterConfigFiles;
@@ -460,8 +460,8 @@ class Plugin {
 		$masterLocale = MASTER_LOCALE;
 		$baseLocaleFilename = $this->getPluginPath() . "/locale/$locale/locale.xml";
 		$baseMasterLocaleFilename = $this->getPluginPath() . "/locale/$masterLocale/locale.xml";
-		$libPkpFilename = "lib/pkp/$baseLocaleFilename";
-		$masterLibPkpFilename = "lib/pkp/$baseMasterLocaleFilename";
+		$libPkpFilename = "core/$baseLocaleFilename";
+		$masterLibPkpFilename = "core/$baseMasterLocaleFilename";
 		$filenames = array();
 		if (file_exists($baseMasterLocaleFilename)) $filenames[] = $baseLocaleFilename;
 		if (file_exists($masterLibPkpFilename)) $filenames[] = $libPkpFilename;

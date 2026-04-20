@@ -13,8 +13,8 @@
  * Notifications
  * FIXME: (Re)move once OJS styles are consolidated with new styles and themes
  */
-@import url("../lib/pkp/styles/themes/default/pnotify.css");
-@import url("../lib/pkp/styles/themes/default/notificationIcons.css");
+@import url("../themes/default/pnotify.css");
+@import url("../themes/default/notificationIcons.css");
 
 .ui-pnotify-title {
 	font-size: 0.8em;
@@ -387,7 +387,7 @@ td.notificationFunction {
 
 .throbber {
 	display: none;
-	background: url(../lib/pkp/templates/images/throbber.gif) no-repeat;
+	background: url(../templates/images/throbber.gif) no-repeat;
 	width: 25px;
 	height: 25px;
 	margin-left: 50%;

@@ -82,7 +82,7 @@ class ONIXCodelistItemDAO extends DAO {
 			$xslTransformer->setParameters(array('listName' => $listName));
 			$xslTransformer->setRegisterPHPFunctions(true);
 
-			$xslFile = 'lib/pkp/xml/onixFilter.xsl';
+			$xslFile = 'core/xml/onixFilter.xsl';
 			$filteredXml = $xslTransformer->transform($filename, XSL_TRANSFORMER_DOCTYPE_FILE, $xslFile, XSL_TRANSFORMER_DOCTYPE_FILE, XSL_TRANSFORMER_DOCTYPE_STRING);
 			if (!$filteredXml) {assert(false);}
 
@@ -119,7 +119,7 @@ class ONIXCodelistItemDAO extends DAO {
 		if (!AppLocale::isLocaleValid($locale)) {
 			$locale = AppLocale::MASTER_LOCALE;
 		}
-		return "lib/pkp/locale/$locale/ONIX_BookProduct_CodeLists.xsd";
+		return "core/locale/$locale/ONIX_BookProduct_CodeLists.xsd";
 	}
 
 	/**

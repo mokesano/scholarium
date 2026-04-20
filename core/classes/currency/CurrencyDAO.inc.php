@@ -77,7 +77,7 @@ class CurrencyDAO extends DAO {
 	 * @return string
 	 */
 	function getCurrencyFilename($locale) {
-		return "lib/pkp/locale/$locale/currencies.xml";
+		return "core/locale/$locale/currencies.xml";
 	}
 
 	/**

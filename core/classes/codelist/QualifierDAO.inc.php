@@ -37,7 +37,7 @@ class QualifierDAO extends CodelistItemDAO {
 		if (!AppLocale::isLocaleValid($locale)) {
 			$locale = AppLocale::MASTER_LOCALE;
 		}
-		return "lib/pkp/locale/$locale/bic21qualifiers.xml";
+		return "core/locale/$locale/bic21qualifiers.xml";
 	}
 
 	/**

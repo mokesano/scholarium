@@ -60,7 +60,7 @@ class MetadataPlugin extends Plugin {
 		$pluginPath = $this->getPluginPath();
 		$wellKnownVocabLocations = array(
 			'./'.$pluginPath.'/schema/'.METADATA_PLUGIN_VOCAB_DATAFILE,
-			'./lib/pkp/'.$pluginPath.'/schema/'.METADATA_PLUGIN_VOCAB_DATAFILE
+			'./core/'.$pluginPath.'/schema/'.METADATA_PLUGIN_VOCAB_DATAFILE
 		);
 
 		$dataFiles = array();

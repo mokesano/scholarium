@@ -185,8 +185,8 @@ class ComponentRouter extends Router {
 				case file_exists($componentFileName):
 					break;
 
-				case file_exists('lib/pkp/'.$componentFileName):
-					$component = 'lib.pkp.'.$component;
+				case file_exists('core/'.$componentFileName):
+					$component = 'core.'.$component;
 					break;
 
 				default:
@@ -198,7 +198,7 @@ class ComponentRouter extends Router {
 			// of the following packages:
 			$allowedPackages = array(
 				'controllers',
-				'lib.pkp.controllers'
+				'core.controllers'
 			);
 
 			// Retrieve requested component operation

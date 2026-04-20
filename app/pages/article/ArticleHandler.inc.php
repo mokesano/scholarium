@@ -407,7 +407,7 @@ class ArticleHandler extends Handler {
 
 	/**
 	 * Validation
-	 * @see lib/pkp/classes/handler/PKPHandler#validate()
+	 * @see core/classes/handler/PKPHandler#validate()
 	 * @param $request Request
 	 * @param $articleId string
 	 * @param $galleyId int or string

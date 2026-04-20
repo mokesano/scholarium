@@ -47,8 +47,8 @@ class GroupHandler extends ManagerHandler {
 		$groups =& $groupDao->getGroups(ASSOC_TYPE_JOURNAL, $journal->getId(), null, $rangeInfo);
 
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/jquery.tablednd.js');
-		$templateMgr->addJavaScript('lib/pkp/js/functions/tablednd.js');
+		$templateMgr->addJavaScript('assets/js/lib/jquery/plugins/jquery.tablednd.js');
+		$templateMgr->addJavaScript('assets/js/functions/tablednd.js');
 		$templateMgr->assign_by_ref('groups', $groups);
 		$templateMgr->assign('boardEnabled', $journal->getSetting('boardEnabled'));
 		$templateMgr->display('manager/groups/groups.tpl');
@@ -207,8 +207,8 @@ class GroupHandler extends ManagerHandler {
 		$groupMembershipDao =& DAORegistry::getDAO('GroupMembershipDAO');
 		$memberships =& $groupMembershipDao->getMemberships($group->getId(), $rangeInfo);
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/jquery.tablednd.js');
-		$templateMgr->addJavaScript('lib/pkp/js/functions/tablednd.js');
+		$templateMgr->addJavaScript('assets/js/lib/jquery/plugins/jquery.tablednd.js');
+		$templateMgr->addJavaScript('assets/js/functions/tablednd.js');
 		$templateMgr->assign_by_ref('memberships', $memberships);
 		$templateMgr->assign_by_ref('group', $group);
 		$templateMgr->display('manager/groups/memberships.tpl');

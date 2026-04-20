@@ -116,7 +116,7 @@ class Locale {
 			}
 		}
 
-		AppLocale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.xml");
+		AppLocale::registerLocaleFile($locale, "core/locale/$locale/common.xml");
 	}
 
 	/**
@@ -126,7 +126,7 @@ class Locale {
 	 * @return array
 	 */
 	function makeComponentMap($locale) {
-		$baseDir = "lib/pkp/locale/$locale/";
+		$baseDir = "core/locale/$locale/";
 
 		return array(
 			LOCALE_COMPONENT_PKP_COMMON => $baseDir . 'common.xml',

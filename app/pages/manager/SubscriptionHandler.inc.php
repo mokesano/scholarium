@@ -235,8 +235,8 @@ class SubscriptionHandler extends ManagerHandler {
 		$this->setupTemplate();
 
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/jquery.tablednd.js');
-		$templateMgr->addJavaScript('lib/pkp/js/functions/tablednd.js');
+		$templateMgr->addJavaScript('assets/js/lib/jquery/plugins/jquery.tablednd.js');
+		$templateMgr->addJavaScript('assets/js/functions/tablednd.js');
 
 		import('app.classes.subscription.SubscriptionAction');
 		SubscriptionAction::subscriptionTypes();

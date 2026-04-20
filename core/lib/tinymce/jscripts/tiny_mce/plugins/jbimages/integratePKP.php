@@ -23,8 +23,8 @@ class IntegratePKP {
 
 		// Load and execute initialization code
 		chdir($this->baseDir);
-		define('INDEX_FILE_LOCATION', $this->baseDir . '/index.php');
-		require($this->baseDir . '/lib/pkp/includes/bootstrap.inc.php');
+		define('INDEX_FILE_LOCATION', $this->baseDir . '/public/index.php');
+		require($this->baseDir . '/core/includes/bootstrap.inc.php');
 
 		$publicDir = Config::getVar('files', 'public_files_dir');
 		$config = Config::getData();
@@ -68,7 +68,7 @@ class IntegratePKP {
 		$locale = LOCALE_DEFAULT;
 		$localeFile = new LocaleFile(
 			$locale,
-			$this->baseDir . "/lib/pkp/locale/$locale/installer.xml"
+			$this->baseDir . "/core/locale/$locale/installer.xml"
 		);
 		Registry::get('localeFiles', true, array($locale => array($localeFile)));
 

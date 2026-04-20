@@ -5,17 +5,17 @@
  * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * short function to map PKP localization strings to the jquery validation plugin localization
+ * short function to map Core localization strings to the jquery validation plugin localization
  */
 
 /**
- * need a mapping of PKP locale strings to the ones used by the jquery validation plugin
+ * need a mapping of Core locale strings to the ones used by the jquery validation plugin
  */
 function jqueryValidatorI18n(baseUrl, locale) {
 	var scriptPrefix;
-	scriptPrefix = baseUrl + "/lib/pkp/js/lib/jquery/plugins/validate/localization/messages_";
+	scriptPrefix = baseUrl + "/assets/js/lib/jquery/plugins/validate/localization/messages_";
 	switch(locale) {
-		//TODO: add all other PKP supported locales
+		//TODO: add all other Core supported locales
 		// French
 		case 'fr_FR':
 		case 'ca_FR':

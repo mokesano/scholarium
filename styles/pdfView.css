@@ -43,7 +43,7 @@
 }
 
 a.pdf {
-	background: transparent url(../lib/pkp/templates/images/structure/page_white_acrobat.png) no-repeat scroll 0 2px !important;
+	background: transparent url(../templates/images/structure/page_white_acrobat.png) no-repeat scroll 0 2px !important;
 	padding: 3px 0 3px 23px;
 	font-size: 1.2em;
 	text-transform: none;

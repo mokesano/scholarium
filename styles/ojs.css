@@ -15,10 +15,10 @@
 /* Includes CSS files necessary for OJS to use new interface components such as Grids */
 
 /* OOCSS - http://github.com/stubbornella/oocss */
-@import url("../lib/pkp/styles/lib/oocss/grids.css");
+@import url("../lib/oocss/grids.css");
 
 /* Theme */
-@import url("../lib/pkp/styles/themes/default/theme.css");
+@import url("../themes/default/theme.css");
 
 /* FIXME: temporary workaround for #5137 - size attribute for smarty form tags does not work */
 input.large, select.large, textarea.textarea{
