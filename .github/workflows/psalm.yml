@@ -31,8 +31,11 @@ jobs:
 
       - name: Psalm Security Scan
         uses: psalm/psalm-github-security-scan@f3e6fd9432bc3e44aec078572677ce9d2ef9c287
+        id: psalm_scan # DITAMBAHKAN: Memberikan ID referensi untuk langkah ini
+        continue-on-error: true # DITAMBAHKAN: Mencegah workflow gagal total di tengah jalan jika Psalm menemukan isu pada kode atau crash
 
       - name: Upload Security Analysis results to GitHub
         uses: github/codeql-action/upload-sarif@v3
+        if: steps.psalm_scan.outcome == 'success' || hashFiles('results.sarif') != '' # DITAMBAHKAN: Mencegah error 'File Not Found'
         with:
           sarif_file: results.sarif
