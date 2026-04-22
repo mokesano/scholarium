@@ -258,10 +258,13 @@ $.fn.ajaxSubmit = function(options) {
 			var extraInputs = [];
 			try {
 				if (options.extraData)
-					for (var n in options.extraData)
-						extraInputs.push(
-							$('<input type="hidden" name="'+n+'" value="'+options.extraData[n]+'" />')
-								.appendTo(form)[0]);
+					for (var n in options.extraData) {
+						var $input = $('<input/>')
+							.attr('type', 'hidden')
+							.attr('name', n)
+							.val(options.extraData[n]);
+						extraInputs.push($input.appendTo(form)[0]);
+					}
 
 				// add iframe to doc and submit the form
 				$io.appendTo('body');
