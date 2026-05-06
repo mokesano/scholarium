@@ -19,6 +19,8 @@ node_modules/
 *.tmp
 *.swp
 *.swo
+**/cache/*
+!**/cache/.gitkeep
 
 # Environment
 .env
