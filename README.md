@@ -115,6 +115,6 @@ Scholarium dapat terwujud berkat kontribusi luar biasa dari:
 ---
 
 <div align="center">
-  <b>Dibangun dengan ❤️ oleh [Rochmady](https://github.com/mokesano) atas dukungan [Sangia Publishing House](https://github.com/sangiaorg) untuk Penerbitan Ilmiah</b><br/>
+  <b>Dibangun dengan ❤️ oleh Rochmady atas dukungan Sangia Publishing House untuk Penerbitan Ilmiah</b><br/>
   <i>Scholarium — Where Manuscripts Meet Automation.</i>
 </div>
