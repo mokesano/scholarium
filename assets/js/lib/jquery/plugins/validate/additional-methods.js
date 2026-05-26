@@ -188,14 +188,23 @@ jQuery.validator.addMethod("url2", function(value, element, param) {
 		return true;
 	}
 
-	// Keep standard URL validation when possible.
-	if (jQuery.validator.methods.url.call(this, value, element)) {
-		return true;
-	}
+	try {
+		var parsedUrl = new URL(value);
+		if (!/^(https?|ftp):$/i.test(parsedUrl.protocol)) {
+			return false;
+		}
 
-	// Optional-TLD fallback (for hosts like "http://intranet" or "ftp://localhost"),
-	// using a constrained linear-time pattern to avoid catastrophic backtracking.
-	return /^(https?|ftp):\/\/(?:localhost|(?:\d{1,3}\.){3}\d{1,3}|[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)(?::\d+)?(?:[/?#][^\s]*)?$/i.test(value);
+		var host = parsedUrl.hostname;
+		// Keep "TLD optional" behavior by allowing localhost/single-label hosts and IPv4.
+		return !!host && (
+			host === "localhost" ||
+			/^\d{1,3}(?:\.\d{1,3}){3}$/.test(host) ||
+			host.indexOf(".") !== -1 ||
+			/^[^\.\s]+$/.test(host)
+		);
+	} catch (e) {
+		return false;
+	}
 }, jQuery.validator.messages.url);
 
 // NOTICE: Modified version of Castle.Components.Validator.CreditCardValidator
