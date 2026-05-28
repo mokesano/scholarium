@@ -667,7 +667,7 @@
 				for (sib = p.firstChild; sib && sib.nodeType == 3; sib = sib.nextSibling)
 					val += sib.nodeValue;
 
-				val = p.innerHTML.replace(/<\/?\w+[^>]*>/gi, '').replace(/&nbsp;/g, '\u00a0');
+				val = (p.textContent || p.innerText || '').replace(/\u00a0|&nbsp;/g, '\u00a0');
 
 				// Detect unordered lists look for bullets
 				if (/^(__MCE_ITEM__)+[\u2022\u00b7\u00a7\u00d8o\u25CF]\s*\u00a0*/.test(val))
