@@ -4623,10 +4623,14 @@ tinymce.html.Writer = function(settings) {
 				if (n.nodeName === 'OPTION' && this.getAttrib(n, 'selected'))
 					o.push({specified : 1, nodeName : 'selected'});
 
-				// It's crazy that this is faster in IE but it's because it returns all attributes all the time
-				n.cloneNode(false).outerHTML.replace(/<\/?[\w:\-]+ ?|=[\"][^\"]+\"|=\'[^\']+\'|=[\w\-]+|>/gi, '').replace(/[\w:\-]+/gi, function(a) {
-					o.push({specified : 1, nodeName : a});
-				});
+				// Iterate attributes directly to avoid parsing outerHTML with regex
+				var attrs = n.attributes, ai, attr;
+				for (ai = 0; ai < attrs.length; ai++) {
+					attr = attrs[ai];
+					if (attr && (attr.specified || typeof attr.specified == 'undefined') && attr.nodeName) {
+						o.push({specified : 1, nodeName : attr.nodeName});
+					}
+				}
 
 				return o;
 			}
