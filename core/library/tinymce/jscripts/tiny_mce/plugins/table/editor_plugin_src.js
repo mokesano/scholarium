@@ -22,7 +22,11 @@
 		elm.appendChild(rng2.cloneContents());
 
 		// Check for text characters of other elements that should be treated as content
-		return elm.innerHTML.replace(/<(br|img|object|embed|input|textarea)[^>]*>/gi, '-').replace(/<[^>]+>/g, '').length == 0;
+		each(dom.select('br,img,object,embed,input,textarea', elm), function(node) {
+			node.parentNode.replaceChild(doc.createTextNode('-'), node);
+		});
+
+		return ((elm.textContent || elm.innerText || '').length == 0);
 	};
 
 	function getSpanVal(td, name) {

@@ -29,7 +29,7 @@
 installed = Off
 
 ; The canonical URL to the OJS installation (excluding the trailing slash)
-base_url = "https://wizdam.sangia.org/wizdam"
+base_url = "https://sangia.org/scholarium"
 
 ; Path to the registry directory (containing various settings files)
 ; Although the files in this directory generally do not contain any
@@ -121,9 +121,9 @@ enable_beacon = on
 
 driver = mysqli
 host = localhost
-username = wizdam_ojsfork2025
-password = wizdam_ojsfork2025
-name = wizdam_ojsfork2025
+username = scholarium_ojsfork2025
+password = scholarium_ojsfork2025
+name = scholarium_ojsfork2025
 
 ; Enable persistent connections
 persistent = Off
@@ -387,7 +387,7 @@ result_cache_hours = 1
 oai = On
 
 ; OAI Repository identifier
-repository_id = "wizdam.sangia.org"
+repository_id = "scholarium.sangia.org"
 
 ; Maximum number of records per request to serve via OAI
 oai_max_records = 100

@@ -177,7 +177,11 @@ $.fn.ajaxSubmit = function(options) {
 		var s = $.extend(true, {}, $.extend(true, {}, $.ajaxSettings), opts);
 
 		var id = 'jqFormIO' + (new Date().getTime());
-		var $io = $('<iframe id="' + id + '" name="' + id + '" src="'+ opts.iframeSrc +'" />');
+		var $io = $('<iframe />').attr({
+			id: id,
+			name: id,
+			src: opts.iframeSrc
+		});
 		var io = $io[0];
 
 		$io.css({ position: 'absolute', top: '-1000px', left: '-1000px' });
@@ -254,10 +258,13 @@ $.fn.ajaxSubmit = function(options) {
 			var extraInputs = [];
 			try {
 				if (options.extraData)
-					for (var n in options.extraData)
-						extraInputs.push(
-							$('<input type="hidden" name="'+n+'" value="'+options.extraData[n]+'" />')
-								.appendTo(form)[0]);
+					for (var n in options.extraData) {
+						var $input = $('<input/>')
+							.attr('type', 'hidden')
+							.attr('name', n)
+							.val(options.extraData[n]);
+						extraInputs.push($input.appendTo(form)[0]);
+					}
 
 				// add iframe to doc and submit the form
 				$io.appendTo('body');
@@ -320,8 +327,9 @@ $.fn.ajaxSubmit = function(options) {
 							xhr.responseText = pre.innerHTML;
 					}
 				}
-				else if (opts.dataType == 'xml' && !xhr.responseXML && xhr.responseText != null) {
-					xhr.responseXML = toXml(xhr.responseText);
+				else if (opts.dataType == 'xml' && !xhr.responseXML) {
+					// Security: avoid reparsing DOM-derived text as XML markup.
+					// Keep responseXML null if no XML document is available.
 				}
 				data = $.httpData(xhr, opts.dataType);
 			}

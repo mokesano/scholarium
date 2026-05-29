@@ -78,6 +78,33 @@
 			var mychilds = $(">*", splitter[0]);
 			var A = args.A; // left/top frame
 			var B = args.B; // right/bottom frame
+
+			// Only allow actual DOM element references for panes.
+			// Reject strings and non-element values to avoid selector/HTML interpretation.
+			var aElem = null;
+			if (A && A.jquery) {
+				aElem = A[0];
+			} else if (A && A.nodeType === 1) {
+				aElem = A;
+			}
+			if (!aElem || aElem.nodeType !== 1) {
+				throw new Error("splitter: option 'A' must be a jQuery object or DOM element");
+			}
+
+			var bElem = null;
+			if (B && B.jquery) {
+				bElem = B[0];
+			} else if (B && B.nodeType === 1) {
+				bElem = B;
+			}
+			if (!bElem || bElem.nodeType !== 1) {
+				throw new Error("splitter: option 'B' must be a jQuery object or DOM element");
+			}
+
+			// Use normalized local references after validation.
+			// Avoid passing option-derived values into jQuery constructor.
+			var paneA = mychilds.eq(mychilds.index(aElem));
+			var paneB = mychilds.eq(mychilds.index(bElem));
 			
 			// Reduce the splitter to an integer size to avoid
 			// float problems with a non-integer width property.
@@ -85,7 +112,7 @@
 			
 			// Create splitbar
 			var C = $('<div><span></span></div>');
-			A.after(C);
+			paneA.after(C);
 			C.attr({
 				"class" : opts.splitbarClass,
 				unselectable : "on"
@@ -108,7 +135,7 @@
 			function startDrag(e) {
 				if (e.target != this)
 					return;
-				_ghost = _ghost || C.clone(false).insertAfter(A);
+				_ghost = _ghost || C.clone(false).insertAfter(paneA);
 				splitter._initPos = C.position();
 				splitter._initPos[opts.moving] -= C[opts.sizing]();
 				_ghost.addClass(opts.ghostClass)
@@ -118,7 +145,7 @@
 						.css(opts.moving, splitter._initPos[opts.moving]);
 				// Safari selects A/B text on a move
 				mychilds.css("-webkit-user-select", "none");
-				A._posSplit = e[opts.eventPos];
+				paneA._posSplit = e[opts.eventPos];
 
 				$(document).bind("mousemove", performDrag).bind("mouseup",
 						endDrag);

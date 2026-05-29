@@ -1613,7 +1613,7 @@ tinymce.html.Styles = function(settings, schema) {
 								str = decode(str);
 
 								// Force strings into single quote format
-								return "'" + str.replace(/\'/g, "\\'") + "'";
+								return "'" + str.replace(/\\/g, "\\\\").replace(/\'/g, "\\'") + "'";
 							}
 
 							url = decode(url || url2 || url3);
@@ -1623,7 +1623,7 @@ tinymce.html.Styles = function(settings, schema) {
 								url = urlConverter.call(urlConverterScope, url, 'style');
 
 							// Output new URL format
-							return "url('" + url.replace(/\'/g, "\\'") + "')";
+							return "url('" + url.replace(/\\/g, "\\\\").replace(/\'/g, "\\'") + "')";
 						});
 
 						styles[name] = isEncoded ? decode(value, true) : value;
@@ -2262,15 +2262,15 @@ tinymce.html.Styles = function(settings, schema) {
 
 			// Precompile RegExps and map objects
 			tokenRegExp = new RegExp('<(?:' +
-				'(?:!--([\\w\\W]*?)-->)|' + // Comment
+				'(?:!--([\\w\\W]*?)--(?:!?)>)|' + // Comment
 				'(?:!\\[CDATA\\[([\\w\\W]*?)\\]\\]>)|' + // CDATA
 				'(?:!DOCTYPE([\\w\\W]*?)>)|' + // DOCTYPE
 				'(?:\\?([^\\s\\/<>]+) ?([\\w\\W]*?)[?/]>)|' + // PI
 				'(?:\\/([^>]+)>)|' + // End element
-				'(?:([^\\s\\/<>]+)((?:\\s+[^"\'>]+(?:(?:"[^"]*")|(?:\'[^\']*\')|[^>]*))*|\\/)>)' + // Start element
+				'(?:([^\\s\\/<>]+)((?:\\s+[^<>]*?)?\\s*|\\/)>)' + // Start element
 			')', 'g');
 
-			attrRegExp = /([\w:\-]+)(?:\s*=\s*(?:(?:\"((?:\\.|[^\"])*)\")|(?:\'((?:\\.|[^\'])*)\')|([^>\s]+)))?/g;
+			attrRegExp = /([\w:\-]+)(?:\s*=\s*(?:(?:\"((?:\\.|[^"\\])*)\")|(?:\'((?:\\.|[^'\\])*)\')|([^>\s]+)))?/g;
 			specialElements = {
 				'script' : /<\/script[^>]*>/gi,
 				'style' : /<\/style[^>]*>/gi,
@@ -4623,10 +4623,14 @@ tinymce.html.Writer = function(settings) {
 				if (n.nodeName === 'OPTION' && this.getAttrib(n, 'selected'))
 					o.push({specified : 1, nodeName : 'selected'});
 
-				// It's crazy that this is faster in IE but it's because it returns all attributes all the time
-				n.cloneNode(false).outerHTML.replace(/<\/?[\w:\-]+ ?|=[\"][^\"]+\"|=\'[^\']+\'|=[\w\-]+|>/gi, '').replace(/[\w:\-]+/gi, function(a) {
-					o.push({specified : 1, nodeName : a});
-				});
+				// Iterate attributes directly to avoid parsing outerHTML with regex
+				var attrs = n.attributes, ai, attr;
+				for (ai = 0; ai < attrs.length; ai++) {
+					attr = attrs[ai];
+					if (attr && (attr.specified || typeof attr.specified == 'undefined') && attr.nodeName) {
+						o.push({specified : 1, nodeName : attr.nodeName});
+					}
+				}
 
 				return o;
 			}
@@ -6008,7 +6012,7 @@ tinymce.html.Writer = function(settings) {
  */
 (function(){
 
-var chunker = /((?:\((?:\([^()]+\)|[^()]+)+\)|\[(?:\[[^\[\]]*\]|['"][^'"]*['"]|[^\[\]'"]+)+\]|\\.|[^ >+~,(\[\\]+)+|[>+~])(\s*,\s*)?((?:.|\r|\n)*)/g,
+var chunker = /((?:\([^()]*\)|\[(?:\[[^\[\]]*\]|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|[^\[\]'"])*\]|\\.|[^ >+~,(\[\\]+)+|[>+~])(\s*,\s*)?((?:.|\r|\n)*)/g,
 	done = 0,
 	toString = Object.prototype.toString,
 	hasDuplicate = false,
@@ -8467,7 +8471,7 @@ window.tinymce.dom.Sizzle = Sizzle;
 				return value.replace(/(<!--\[CDATA\[|\]\]-->)/g, '\n')
 						.replace(/^[\r\n]*|[\r\n]*$/g, '')
 						.replace(/^\s*((<!--)?(\s*\/\/)?\s*<!\[CDATA\[|(<!--\s*)?\/\*\s*<!\[CDATA\[\s*\*\/|(\/\/)?\s*<!--|\/\*\s*<!--\s*\*\/)\s*[\r\n]*/gi, '')
-						.replace(/\s*(\/\*\s*\]\]>\s*\*\/(-->)?|\s*\/\/\s*\]\]>(-->)?|\/\/\s*(-->)?|\]\]>|\/\*\s*-->\s*\*\/|\s*-->\s*)\s*$/g, '');
+						.replace(/\s*(\/\*\s*\]\]>\s*\*\/(--(?:!?)>)?|\s*\/\/\s*\]\]>(--(?:!?)>)?|\/\/\s*(--(?:!?)>)?|\]\]>|\/\*\s*--(?:!?)>\s*\*\/|\s*--(?:!?)>\s*)\s*$/g, '');
 			};
 
 			while (i--) {
@@ -13684,7 +13688,7 @@ tinymce.create('tinymce.ui.Toolbar:tinymce.ui.Container', {
 				anchor = dom.getParent(selection.getNode(), 'a');
 
 				// Spaces are never valid in URLs and it's a very common mistake for people to make so we fix it here.
-				value.href = value.href.replace(' ', '%20');
+				value.href = value.href.replace(/ /g, '%20');
 
 				// Remove existing links if there could be child links or that the href isn't specified
 				if (!anchor || !value.href) {

@@ -216,14 +216,14 @@ function setPopupControlsDisabled(state) {
 function parseLink(link) {
 	link = link.replace(new RegExp('&#39;', 'g'), "'");
 
-	var fnName = link.replace(new RegExp("\\s*([A-Za-z0-9\.]*)\\s*\\(.*", "gi"), "$1");
+	var fnName = link.replace(new RegExp("\\s*([A-Za-z0-9.]*)\\s*\\(.*", "gi"), "$1");
 
 	// Is function name a template function
 	var template = templates[fnName];
 	if (template) {
 		// Build regexp
-		var variableNames = template.match(new RegExp("'?\\$\\{[A-Za-z0-9\.]*\\}'?", "gi"));
-		var regExp = "\\s*[A-Za-z0-9\.]*\\s*\\(";
+		var variableNames = template.match(new RegExp("'?\\$\\{[A-Za-z0-9.]*\\}'?", "gi"));
+		var regExp = "\\s*[A-Za-z0-9.]*\\s*\\(";
 		var replaceStr = "";
 		for (var i=0; i<variableNames.length; i++) {
 			// Is string value
