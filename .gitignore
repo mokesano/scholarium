@@ -25,6 +25,7 @@ node_modules/
 .env
 .env.local
 *.env.*
+config.inc.php
 
 # Editors
 .vscode/
